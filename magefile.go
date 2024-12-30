@@ -79,7 +79,7 @@ func unzip(name string) error {
 	return nil
 }
 
-const artifactURL = "https://github.com/jcchavezs/coraza-http-wasm/releases/download/{version}/coraza-http-wasm-{version}.zip"
+const artifactURL = "https://github.com/adamab48/coraza-http-wasm/releases/download/{version}/coraza-http-wasm-{version}.zip"
 
 func downloadHTTPWasmArtifact(version, dir string) error {
 	url := strings.Replace(artifactURL, "{version}", version, 2)
@@ -98,7 +98,7 @@ func getHttpWasmVersion() (string, error) {
 	version := os.Getenv("VERSION")
 	if version == "" {
 		var err error
-		version, err = sh.Output("gh", "api", "repos/jcchavezs/coraza-http-wasm/releases", "-q", ".[0].tag_name")
+		version, err = sh.Output("gh", "api", "repos/adamab48/coraza-http-wasm/releases", "-q", ".[0].tag_name")
 		if err != nil {
 			return "", err
 		}
