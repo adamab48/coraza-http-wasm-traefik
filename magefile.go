@@ -112,11 +112,12 @@ func DownloadArtifact() error {
 		return err
 	}
 
+	version, err := getHttpWasmVersion()
 	if err != nil {
 		return err
 	}
 
-	return downloadHTTPWasmArtifact("https://github.com/adamab48/coraza-http-wasm/releases/download/v0.0.2/coraza-http-wasm-v0.0.2.zip", "./build")
+	return downloadHTTPWasmArtifact(version, "./build")
 }
 
 func copy(src, dst string) error {
